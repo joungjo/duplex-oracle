@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<oracle>
+		<driver>oracle.jdbc.driver.OracleDriver</driver>
+		<url>jdbc:oracle:thin:@192.168.56.95:1521:orcl</url>
+		<cdcuser>CDCUSER</cdcuser>
+		<password>123456</password>
+		<tablespace>ts_cdc</tablespace>
+		<datafile>/home/oracle/cdcuser.dbf</datafile>
+		<file-size>2048m</file-size>
+		<tempspace>cdcusertemp</tempspace>
+		<tempfile>/home/oracle/cdcusertemp.dbf</tempfile>
+		<temp-size>2048m</temp-size>
+		<change-set>set_cdc</change-set>
+		<dba-account>sys</dba-account>
+		<dba-password>123456</dba-password>
+		<schema name="GFGXDB_WM" password="GFGXDB_WM">
+			<table name="GFGX_Y_CPSC_CHCPSCJH"></table>
+			<table name="GFGX_Y_CPSC_LSH"></table>
+			<table name="GFGX_Y_DDGC_GCRW"></table>
+			<table name="GFGX_Y_DDGC_GZJSJH"></table>
+			<table name="GFGX_Y_DDGL_CHJGCLJL"></table>
+			<table name="GFGX_Y_DDGL_CPCLJL"></table>
+			<table name="GFGX_Y_DDGL_CPRGSH"></table>
+			<table name="GFGX_Y_DDGL_DD"></table>
+			<table name="GFGX_Y_SJCP_CPST">
+				<filter table="GFGX_Y_SJCP_CPYXX">
+					<column name="CPLX"  method="exclude">4</column>
+				</filter>
+			</table>
+			<table name="GFGX_Y_SJCP_CPYXX">
+				<filter table="GFGX_Y_SJCP_CPYXX">
+					<column name="CPLX"  method="exclude">4</column>
+				</filter>
+			</table>
+			<table name="GFGX_Y_SJCP_KZMS">
+				<filter table="GFGX_Y_SJCP_CPYXX">
+					<column name="CPLX"  method="exclude">4</column>
+				</filter>
+			</table>
+		</schema>
+	</oracle>
+</configs>
